@@ -1,0 +1,693 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1A57D2D52A90A1F300FF698F /* WatchHealthRL Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 1A57D2D42A90A1F300FF698F /* WatchHealthRL Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		1A57D2DA2A90A1F300FF698F /* WatchHealthRLApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A57D2D92A90A1F300FF698F /* WatchHealthRLApp.swift */; };
+		1A57D2DC2A90A1F300FF698F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A57D2DB2A90A1F300FF698F /* ContentView.swift */; };
+		1A57D2DE2A90A1F400FF698F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A57D2DD2A90A1F400FF698F /* Assets.xcassets */; };
+		1A57D2E12A90A1F400FF698F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A57D2E02A90A1F400FF698F /* Preview Assets.xcassets */; };
+		1A57D2EB2A90A1F400FF698F /* WatchHealthRL_Watch_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A57D2EA2A90A1F400FF698F /* WatchHealthRL_Watch_AppTests.swift */; };
+		1A57D2F52A90A1F400FF698F /* WatchHealthRL_Watch_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A57D2F42A90A1F400FF698F /* WatchHealthRL_Watch_AppUITests.swift */; };
+		1A57D2F72A90A1F400FF698F /* WatchHealthRL_Watch_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A57D2F62A90A1F400FF698F /* WatchHealthRL_Watch_AppUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1A57D2D62A90A1F300FF698F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1A57D2C82A90A1F300FF698F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1A57D2D32A90A1F300FF698F;
+			remoteInfo = "WatchHealthRL Watch App";
+		};
+		1A57D2E72A90A1F400FF698F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1A57D2C82A90A1F300FF698F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1A57D2D32A90A1F300FF698F;
+			remoteInfo = "WatchHealthRL Watch App";
+		};
+		1A57D2F12A90A1F400FF698F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1A57D2C82A90A1F300FF698F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1A57D2D32A90A1F300FF698F;
+			remoteInfo = "WatchHealthRL Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1A57D2FD2A90A1F400FF698F /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				1A57D2D52A90A1F300FF698F /* WatchHealthRL Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		1A57D2CE2A90A1F300FF698F /* WatchHealthRL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchHealthRL.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A57D2D42A90A1F300FF698F /* WatchHealthRL Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WatchHealthRL Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A57D2D92A90A1F300FF698F /* WatchHealthRLApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchHealthRLApp.swift; sourceTree = "<group>"; };
+		1A57D2DB2A90A1F300FF698F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1A57D2DD2A90A1F400FF698F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1A57D2E02A90A1F400FF698F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1A57D2E62A90A1F400FF698F /* WatchHealthRL Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "WatchHealthRL Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A57D2EA2A90A1F400FF698F /* WatchHealthRL_Watch_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchHealthRL_Watch_AppTests.swift; sourceTree = "<group>"; };
+		1A57D2F02A90A1F400FF698F /* WatchHealthRL Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "WatchHealthRL Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A57D2F42A90A1F400FF698F /* WatchHealthRL_Watch_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchHealthRL_Watch_AppUITests.swift; sourceTree = "<group>"; };
+		1A57D2F62A90A1F400FF698F /* WatchHealthRL_Watch_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchHealthRL_Watch_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1A57D2D12A90A1F300FF698F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1A57D2E32A90A1F400FF698F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1A57D2ED2A90A1F400FF698F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1A57D2C72A90A1F300FF698F = {
+			isa = PBXGroup;
+			children = (
+				1A57D2D82A90A1F300FF698F /* WatchHealthRL Watch App */,
+				1A57D2E92A90A1F400FF698F /* WatchHealthRL Watch AppTests */,
+				1A57D2F32A90A1F400FF698F /* WatchHealthRL Watch AppUITests */,
+				1A57D2CF2A90A1F300FF698F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1A57D2CF2A90A1F300FF698F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1A57D2CE2A90A1F300FF698F /* WatchHealthRL.app */,
+				1A57D2D42A90A1F300FF698F /* WatchHealthRL Watch App.app */,
+				1A57D2E62A90A1F400FF698F /* WatchHealthRL Watch AppTests.xctest */,
+				1A57D2F02A90A1F400FF698F /* WatchHealthRL Watch AppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1A57D2D82A90A1F300FF698F /* WatchHealthRL Watch App */ = {
+			isa = PBXGroup;
+			children = (
+				1A57D2D92A90A1F300FF698F /* WatchHealthRLApp.swift */,
+				1A57D2DB2A90A1F300FF698F /* ContentView.swift */,
+				1A57D2DD2A90A1F400FF698F /* Assets.xcassets */,
+				1A57D2DF2A90A1F400FF698F /* Preview Content */,
+			);
+			path = "WatchHealthRL Watch App";
+			sourceTree = "<group>";
+		};
+		1A57D2DF2A90A1F400FF698F /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				1A57D2E02A90A1F400FF698F /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1A57D2E92A90A1F400FF698F /* WatchHealthRL Watch AppTests */ = {
+			isa = PBXGroup;
+			children = (
+				1A57D2EA2A90A1F400FF698F /* WatchHealthRL_Watch_AppTests.swift */,
+			);
+			path = "WatchHealthRL Watch AppTests";
+			sourceTree = "<group>";
+		};
+		1A57D2F32A90A1F400FF698F /* WatchHealthRL Watch AppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				1A57D2F42A90A1F400FF698F /* WatchHealthRL_Watch_AppUITests.swift */,
+				1A57D2F62A90A1F400FF698F /* WatchHealthRL_Watch_AppUITestsLaunchTests.swift */,
+			);
+			path = "WatchHealthRL Watch AppUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1A57D2CD2A90A1F300FF698F /* WatchHealthRL */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1A57D2FE2A90A1F400FF698F /* Build configuration list for PBXNativeTarget "WatchHealthRL" */;
+			buildPhases = (
+				1A57D2CC2A90A1F300FF698F /* Resources */,
+				1A57D2FD2A90A1F400FF698F /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1A57D2D72A90A1F300FF698F /* PBXTargetDependency */,
+			);
+			name = WatchHealthRL;
+			productName = WatchHealthRL;
+			productReference = 1A57D2CE2A90A1F300FF698F /* WatchHealthRL.app */;
+			productType = "com.apple.product-type.application.watchapp2-container";
+		};
+		1A57D2D32A90A1F300FF698F /* WatchHealthRL Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1A57D2FA2A90A1F400FF698F /* Build configuration list for PBXNativeTarget "WatchHealthRL Watch App" */;
+			buildPhases = (
+				1A57D2D02A90A1F300FF698F /* Sources */,
+				1A57D2D12A90A1F300FF698F /* Frameworks */,
+				1A57D2D22A90A1F300FF698F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "WatchHealthRL Watch App";
+			productName = "WatchHealthRL Watch App";
+			productReference = 1A57D2D42A90A1F300FF698F /* WatchHealthRL Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1A57D2E52A90A1F400FF698F /* WatchHealthRL Watch AppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1A57D3012A90A1F400FF698F /* Build configuration list for PBXNativeTarget "WatchHealthRL Watch AppTests" */;
+			buildPhases = (
+				1A57D2E22A90A1F400FF698F /* Sources */,
+				1A57D2E32A90A1F400FF698F /* Frameworks */,
+				1A57D2E42A90A1F400FF698F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1A57D2E82A90A1F400FF698F /* PBXTargetDependency */,
+			);
+			name = "WatchHealthRL Watch AppTests";
+			productName = "WatchHealthRL Watch AppTests";
+			productReference = 1A57D2E62A90A1F400FF698F /* WatchHealthRL Watch AppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		1A57D2EF2A90A1F400FF698F /* WatchHealthRL Watch AppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1A57D3042A90A1F400FF698F /* Build configuration list for PBXNativeTarget "WatchHealthRL Watch AppUITests" */;
+			buildPhases = (
+				1A57D2EC2A90A1F400FF698F /* Sources */,
+				1A57D2ED2A90A1F400FF698F /* Frameworks */,
+				1A57D2EE2A90A1F400FF698F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1A57D2F22A90A1F400FF698F /* PBXTargetDependency */,
+			);
+			name = "WatchHealthRL Watch AppUITests";
+			productName = "WatchHealthRL Watch AppUITests";
+			productReference = 1A57D2F02A90A1F400FF698F /* WatchHealthRL Watch AppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1A57D2C82A90A1F300FF698F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					1A57D2CD2A90A1F300FF698F = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+					1A57D2D32A90A1F300FF698F = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+					1A57D2E52A90A1F400FF698F = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = 1A57D2D32A90A1F300FF698F;
+					};
+					1A57D2EF2A90A1F400FF698F = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = 1A57D2D32A90A1F300FF698F;
+					};
+				};
+			};
+			buildConfigurationList = 1A57D2CB2A90A1F300FF698F /* Build configuration list for PBXProject "WatchHealthRL" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1A57D2C72A90A1F300FF698F;
+			productRefGroup = 1A57D2CF2A90A1F300FF698F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1A57D2CD2A90A1F300FF698F /* WatchHealthRL */,
+				1A57D2D32A90A1F300FF698F /* WatchHealthRL Watch App */,
+				1A57D2E52A90A1F400FF698F /* WatchHealthRL Watch AppTests */,
+				1A57D2EF2A90A1F400FF698F /* WatchHealthRL Watch AppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1A57D2CC2A90A1F300FF698F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1A57D2D22A90A1F300FF698F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A57D2E12A90A1F400FF698F /* Preview Assets.xcassets in Resources */,
+				1A57D2DE2A90A1F400FF698F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1A57D2E42A90A1F400FF698F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1A57D2EE2A90A1F400FF698F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1A57D2D02A90A1F300FF698F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A57D2DC2A90A1F300FF698F /* ContentView.swift in Sources */,
+				1A57D2DA2A90A1F300FF698F /* WatchHealthRLApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1A57D2E22A90A1F400FF698F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A57D2EB2A90A1F400FF698F /* WatchHealthRL_Watch_AppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1A57D2EC2A90A1F400FF698F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A57D2F72A90A1F400FF698F /* WatchHealthRL_Watch_AppUITestsLaunchTests.swift in Sources */,
+				1A57D2F52A90A1F400FF698F /* WatchHealthRL_Watch_AppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1A57D2D72A90A1F300FF698F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1A57D2D32A90A1F300FF698F /* WatchHealthRL Watch App */;
+			targetProxy = 1A57D2D62A90A1F300FF698F /* PBXContainerItemProxy */;
+		};
+		1A57D2E82A90A1F400FF698F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1A57D2D32A90A1F300FF698F /* WatchHealthRL Watch App */;
+			targetProxy = 1A57D2E72A90A1F400FF698F /* PBXContainerItemProxy */;
+		};
+		1A57D2F22A90A1F400FF698F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1A57D2D32A90A1F300FF698F /* WatchHealthRL Watch App */;
+			targetProxy = 1A57D2F12A90A1F400FF698F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1A57D2F82A90A1F400FF698F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1A57D2F92A90A1F400FF698F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		1A57D2FB2A90A1F400FF698F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"WatchHealthRL Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = 63YYHDZ766;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = WatchHealthRL;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKWatchOnly = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = health.WatchHealthRL.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.4;
+			};
+			name = Debug;
+		};
+		1A57D2FC2A90A1F400FF698F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"WatchHealthRL Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = 63YYHDZ766;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = WatchHealthRL;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKWatchOnly = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = health.WatchHealthRL.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 9.4;
+			};
+			name = Release;
+		};
+		1A57D2FF2A90A1F400FF698F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 63YYHDZ766;
+				INFOPLIST_KEY_CFBundleDisplayName = WatchHealthRL;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = health.WatchHealthRL;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		1A57D3002A90A1F400FF698F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 63YYHDZ766;
+				INFOPLIST_KEY_CFBundleDisplayName = WatchHealthRL;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = health.WatchHealthRL;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1A57D3022A90A1F400FF698F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 63YYHDZ766;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "health.WatchHealthRL-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WatchHealthRL Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/WatchHealthRL Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 9.4;
+			};
+			name = Debug;
+		};
+		1A57D3032A90A1F400FF698F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 63YYHDZ766;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "health.WatchHealthRL-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WatchHealthRL Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/WatchHealthRL Watch App";
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 9.4;
+			};
+			name = Release;
+		};
+		1A57D3052A90A1F400FF698F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 63YYHDZ766;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "health.WatchHealthRL-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "WatchHealthRL Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 9.4;
+			};
+			name = Debug;
+		};
+		1A57D3062A90A1F400FF698F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 63YYHDZ766;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "health.WatchHealthRL-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "WatchHealthRL Watch App";
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 9.4;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1A57D2CB2A90A1F300FF698F /* Build configuration list for PBXProject "WatchHealthRL" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A57D2F82A90A1F400FF698F /* Debug */,
+				1A57D2F92A90A1F400FF698F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1A57D2FA2A90A1F400FF698F /* Build configuration list for PBXNativeTarget "WatchHealthRL Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A57D2FB2A90A1F400FF698F /* Debug */,
+				1A57D2FC2A90A1F400FF698F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1A57D2FE2A90A1F400FF698F /* Build configuration list for PBXNativeTarget "WatchHealthRL" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A57D2FF2A90A1F400FF698F /* Debug */,
+				1A57D3002A90A1F400FF698F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1A57D3012A90A1F400FF698F /* Build configuration list for PBXNativeTarget "WatchHealthRL Watch AppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A57D3022A90A1F400FF698F /* Debug */,
+				1A57D3032A90A1F400FF698F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1A57D3042A90A1F400FF698F /* Build configuration list for PBXNativeTarget "WatchHealthRL Watch AppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A57D3052A90A1F400FF698F /* Debug */,
+				1A57D3062A90A1F400FF698F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1A57D2C82A90A1F300FF698F /* Project object */;
+}
