@@ -9,12 +9,19 @@
 /* Begin PBXBuildFile section */
 		1A57D2D52A90A1F300FF698F /* WatchHealthRL Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 1A57D2D42A90A1F300FF698F /* WatchHealthRL Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		1A57D2DA2A90A1F300FF698F /* WatchHealthRLApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A57D2D92A90A1F300FF698F /* WatchHealthRLApp.swift */; };
-		1A57D2DC2A90A1F300FF698F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A57D2DB2A90A1F300FF698F /* ContentView.swift */; };
+		1A57D2DC2A90A1F300FF698F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A57D2DB2A90A1F300FF698F /* MainView.swift */; };
 		1A57D2DE2A90A1F400FF698F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A57D2DD2A90A1F400FF698F /* Assets.xcassets */; };
 		1A57D2E12A90A1F400FF698F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A57D2E02A90A1F400FF698F /* Preview Assets.xcassets */; };
 		1A57D2EB2A90A1F400FF698F /* WatchHealthRL_Watch_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A57D2EA2A90A1F400FF698F /* WatchHealthRL_Watch_AppTests.swift */; };
 		1A57D2F52A90A1F400FF698F /* WatchHealthRL_Watch_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A57D2F42A90A1F400FF698F /* WatchHealthRL_Watch_AppUITests.swift */; };
 		1A57D2F72A90A1F400FF698F /* WatchHealthRL_Watch_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A57D2F62A90A1F400FF698F /* WatchHealthRL_Watch_AppUITestsLaunchTests.swift */; };
+		1A57D3082A90A22600FF698F /* MoodUpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A57D3072A90A22600FF698F /* MoodUpdateView.swift */; };
+		1A57D30A2A90A24500FF698F /* TrainModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A57D3092A90A24500FF698F /* TrainModelView.swift */; };
+		1A57D30C2A90A26400FF698F /* MoodUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A57D30B2A90A26400FF698F /* MoodUpdate.swift */; };
+		1A57D30E2A90A31600FF698F /* SavedMoodManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A57D30D2A90A31600FF698F /* SavedMoodManager.swift */; };
+		1ACBB12F2A917C4C00E4F534 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 1ACBB12E2A917C4C00E4F534 /* Realm */; };
+		1ACBB1312A917C4C00E4F534 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1ACBB1302A917C4C00E4F534 /* RealmSwift */; };
+		1ACBB1332A92DF6000E4F534 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACBB1322A92DF6000E4F534 /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,7 +66,7 @@
 		1A57D2CE2A90A1F300FF698F /* WatchHealthRL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchHealthRL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A57D2D42A90A1F300FF698F /* WatchHealthRL Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WatchHealthRL Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A57D2D92A90A1F300FF698F /* WatchHealthRLApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchHealthRLApp.swift; sourceTree = "<group>"; };
-		1A57D2DB2A90A1F300FF698F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1A57D2DB2A90A1F300FF698F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		1A57D2DD2A90A1F400FF698F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1A57D2E02A90A1F400FF698F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1A57D2E62A90A1F400FF698F /* WatchHealthRL Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "WatchHealthRL Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,6 +74,13 @@
 		1A57D2F02A90A1F400FF698F /* WatchHealthRL Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "WatchHealthRL Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A57D2F42A90A1F400FF698F /* WatchHealthRL_Watch_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchHealthRL_Watch_AppUITests.swift; sourceTree = "<group>"; };
 		1A57D2F62A90A1F400FF698F /* WatchHealthRL_Watch_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchHealthRL_Watch_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		1A57D3072A90A22600FF698F /* MoodUpdateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodUpdateView.swift; sourceTree = "<group>"; };
+		1A57D3092A90A24500FF698F /* TrainModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainModelView.swift; sourceTree = "<group>"; };
+		1A57D30B2A90A26400FF698F /* MoodUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodUpdate.swift; sourceTree = "<group>"; };
+		1A57D30D2A90A31600FF698F /* SavedMoodManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedMoodManager.swift; sourceTree = "<group>"; };
+		1ACBB1322A92DF6000E4F534 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		1ACBB1342A92E4F300E4F534 /* WatchHealthRL Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "WatchHealthRL Watch App.entitlements"; sourceTree = "<group>"; };
+		1ACBB1352A92E51E00E4F534 /* WatchHealthRL-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "WatchHealthRL-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +88,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1ACBB1312A917C4C00E4F534 /* RealmSwift in Frameworks */,
+				1ACBB12F2A917C4C00E4F534 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,10 +134,17 @@
 		1A57D2D82A90A1F300FF698F /* WatchHealthRL Watch App */ = {
 			isa = PBXGroup;
 			children = (
+				1ACBB1352A92E51E00E4F534 /* WatchHealthRL-Watch-App-Info.plist */,
+				1ACBB1342A92E4F300E4F534 /* WatchHealthRL Watch App.entitlements */,
 				1A57D2D92A90A1F300FF698F /* WatchHealthRLApp.swift */,
-				1A57D2DB2A90A1F300FF698F /* ContentView.swift */,
+				1A57D2DB2A90A1F300FF698F /* MainView.swift */,
+				1A57D3072A90A22600FF698F /* MoodUpdateView.swift */,
+				1A57D3092A90A24500FF698F /* TrainModelView.swift */,
+				1A57D30D2A90A31600FF698F /* SavedMoodManager.swift */,
+				1A57D30B2A90A26400FF698F /* MoodUpdate.swift */,
 				1A57D2DD2A90A1F400FF698F /* Assets.xcassets */,
 				1A57D2DF2A90A1F400FF698F /* Preview Content */,
+				1ACBB1322A92DF6000E4F534 /* DataManager.swift */,
 			);
 			path = "WatchHealthRL Watch App";
 			sourceTree = "<group>";
@@ -184,6 +207,10 @@
 			dependencies = (
 			);
 			name = "WatchHealthRL Watch App";
+			packageProductDependencies = (
+				1ACBB12E2A917C4C00E4F534 /* Realm */,
+				1ACBB1302A917C4C00E4F534 /* RealmSwift */,
+			);
 			productName = "WatchHealthRL Watch App";
 			productReference = 1A57D2D42A90A1F300FF698F /* WatchHealthRL Watch App.app */;
 			productType = "com.apple.product-type.application";
@@ -259,6 +286,9 @@
 				Base,
 			);
 			mainGroup = 1A57D2C72A90A1F300FF698F;
+			packageReferences = (
+				1ACBB12D2A917C4C00E4F534 /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			productRefGroup = 1A57D2CF2A90A1F300FF698F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -309,7 +339,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A57D2DC2A90A1F300FF698F /* ContentView.swift in Sources */,
+				1A57D30E2A90A31600FF698F /* SavedMoodManager.swift in Sources */,
+				1A57D2DC2A90A1F300FF698F /* MainView.swift in Sources */,
+				1A57D30A2A90A24500FF698F /* TrainModelView.swift in Sources */,
+				1ACBB1332A92DF6000E4F534 /* DataManager.swift in Sources */,
+				1A57D3082A90A22600FF698F /* MoodUpdateView.swift in Sources */,
+				1A57D30C2A90A26400FF698F /* MoodUpdate.swift in Sources */,
 				1A57D2DA2A90A1F300FF698F /* WatchHealthRLApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -466,12 +501,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "WatchHealthRL Watch App/WatchHealthRL Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WatchHealthRL Watch App/Preview Content\"";
 				DEVELOPMENT_TEAM = 63YYHDZ766;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "WatchHealthRL-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = WatchHealthRL;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKWatchOnly = YES;
@@ -496,12 +533,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "WatchHealthRL Watch App/WatchHealthRL Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WatchHealthRL Watch App/Preview Content\"";
 				DEVELOPMENT_TEAM = 63YYHDZ766;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "WatchHealthRL-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = WatchHealthRL;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKWatchOnly = YES;
@@ -688,6 +727,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1ACBB12D2A917C4C00E4F534 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.42.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1ACBB12E2A917C4C00E4F534 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1ACBB12D2A917C4C00E4F534 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		1ACBB1302A917C4C00E4F534 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1ACBB12D2A917C4C00E4F534 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1A57D2C82A90A1F300FF698F /* Project object */;
 }

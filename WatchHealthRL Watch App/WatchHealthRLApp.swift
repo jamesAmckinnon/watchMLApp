@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct WatchHealthRL_Watch_AppApp: App {
+    @StateObject var dataManager = DataManager()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView().environmentObject(dataManager)
         }
     }
 }
