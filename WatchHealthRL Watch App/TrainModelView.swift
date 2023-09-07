@@ -11,6 +11,7 @@ import RealmSwift
 struct TrainModelView: View {
 //    @ObservedResults(MoodUpdate.self) var moods
     @StateObject var realmManager = SavedMoodManager()
+//    @StateObject var realmManager.getData()
     
     var body: some View {
         VStack {

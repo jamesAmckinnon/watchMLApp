@@ -29,16 +29,17 @@ struct MainView: View {
             UNUserNotificationCenter.current().delegate = delegate
             UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
             createNotification()
+            dataManager.getData()
         })
     }
     
     func createNotification(){
         let content = UNMutableNotificationContent()
-        content.title = "Message"
-        content.subtitle = "In-app Notification"
+        content.title = "ML Health App"
+        content.subtitle = "How are you feeling?"
         content.categoryIdentifier = "ACTIONS"
         
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 61, repeats: true)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 600, repeats: true)
         let request = UNNotificationRequest(identifier: "IN-APP", content: content, trigger: trigger)
         
         let one = UNNotificationAction(identifier: "1", title: "1", options: [])
@@ -46,9 +47,8 @@ struct MainView: View {
         let three = UNNotificationAction(identifier: "3", title: "3", options: [])
         let four = UNNotificationAction(identifier: "4", title: "4", options: [])
         let five = UNNotificationAction(identifier: "5", title: "5", options: [])
-        let close = UNNotificationAction(identifier: "CLOSE", title: "Close", options: .destructive)
 
-        let category = UNNotificationCategory(identifier: "ACTIONS", actions: [one, two, three, four, five, close], intentIdentifiers: [])
+        let category = UNNotificationCategory(identifier: "ACTIONS", actions: [one, two, three, four, five], intentIdentifiers: [])
         
         UNUserNotificationCenter.current().setNotificationCategories([category])
         
@@ -73,12 +73,9 @@ class NotificationDelegate: NSObject, ObservableObject, UNUserNotificationCenter
     // listening to actions
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void){
         
-        if response.actionIdentifier != "CLOSE" {
-            print("here")
-            let dateTime = Date()
-            let mood = Int(response.actionIdentifier) ?? 0
-            realmManager.createMood(dateTime: dateTime, mood: mood)
-        }
+        let dateTime = Date()
+        let mood = Int(response.actionIdentifier) ?? 0
+        realmManager.createMood(dateTime: dateTime, mood: mood)
         
         completionHandler()
     }

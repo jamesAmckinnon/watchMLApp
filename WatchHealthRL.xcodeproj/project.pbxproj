@@ -22,6 +22,7 @@
 		1ACBB12F2A917C4C00E4F534 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 1ACBB12E2A917C4C00E4F534 /* Realm */; };
 		1ACBB1312A917C4C00E4F534 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1ACBB1302A917C4C00E4F534 /* RealmSwift */; };
 		1ACBB1332A92DF6000E4F534 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACBB1322A92DF6000E4F534 /* DataManager.swift */; };
+		D7C460702AA92F9C00561E68 /* bpmUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C4606F2AA92F9B00561E68 /* bpmUpdate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		1ACBB1322A92DF6000E4F534 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		1ACBB1342A92E4F300E4F534 /* WatchHealthRL Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "WatchHealthRL Watch App.entitlements"; sourceTree = "<group>"; };
 		1ACBB1352A92E51E00E4F534 /* WatchHealthRL-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "WatchHealthRL-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
+		D7C4606F2AA92F9B00561E68 /* bpmUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bpmUpdate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 		1A57D2D82A90A1F300FF698F /* WatchHealthRL Watch App */ = {
 			isa = PBXGroup;
 			children = (
+				D7C460712AA930D100561E68 /* Data */,
 				1ACBB1352A92E51E00E4F534 /* WatchHealthRL-Watch-App-Info.plist */,
 				1ACBB1342A92E4F300E4F534 /* WatchHealthRL Watch App.entitlements */,
 				1A57D2D92A90A1F300FF698F /* WatchHealthRLApp.swift */,
@@ -141,10 +144,9 @@
 				1A57D3072A90A22600FF698F /* MoodUpdateView.swift */,
 				1A57D3092A90A24500FF698F /* TrainModelView.swift */,
 				1A57D30D2A90A31600FF698F /* SavedMoodManager.swift */,
-				1A57D30B2A90A26400FF698F /* MoodUpdate.swift */,
+				1ACBB1322A92DF6000E4F534 /* DataManager.swift */,
 				1A57D2DD2A90A1F400FF698F /* Assets.xcassets */,
 				1A57D2DF2A90A1F400FF698F /* Preview Content */,
-				1ACBB1322A92DF6000E4F534 /* DataManager.swift */,
 			);
 			path = "WatchHealthRL Watch App";
 			sourceTree = "<group>";
@@ -172,6 +174,15 @@
 				1A57D2F62A90A1F400FF698F /* WatchHealthRL_Watch_AppUITestsLaunchTests.swift */,
 			);
 			path = "WatchHealthRL Watch AppUITests";
+			sourceTree = "<group>";
+		};
+		D7C460712AA930D100561E68 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				1A57D30B2A90A26400FF698F /* MoodUpdate.swift */,
+				D7C4606F2AA92F9B00561E68 /* bpmUpdate.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -343,6 +354,7 @@
 				1A57D2DC2A90A1F300FF698F /* MainView.swift in Sources */,
 				1A57D30A2A90A24500FF698F /* TrainModelView.swift in Sources */,
 				1ACBB1332A92DF6000E4F534 /* DataManager.swift in Sources */,
+				D7C460702AA92F9C00561E68 /* bpmUpdate.swift in Sources */,
 				1A57D3082A90A22600FF698F /* MoodUpdateView.swift in Sources */,
 				1A57D30C2A90A26400FF698F /* MoodUpdate.swift in Sources */,
 				1A57D2DA2A90A1F300FF698F /* WatchHealthRLApp.swift in Sources */,

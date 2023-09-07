@@ -10,22 +10,20 @@ import HealthKit
 
 class DataManager: NSObject, ObservableObject {
     let healthStore = HKHealthStore()
+    var dataTypeDictionary = [(String, Any)]()
     
     // function to request authorization for our app to read and share any health data our app intends to use
     func requestAuthorization() {
-//        ** Heart rate
-//        Heart rate variability
-//        Resting heart rate
-//        active energy burned
-//        basal energy burned
-//        stepCount
-//        Body temperature
-
         
         let typesToRead: Set = [
-            HKObjectType.categoryType(forIdentifier: .sleepAnalysis)!,
+            HKObjectType.categoryType(forIdentifier:   .sleepAnalysis)!,
             HKQuantityType.quantityType(forIdentifier: .heartRate)!,
+            HKQuantityType.quantityType(forIdentifier: .restingHeartRate)!,
+            HKQuantityType.quantityType(forIdentifier: .heartRateVariabilitySDNN)!,
+            HKQuantityType.quantityType(forIdentifier: .bodyTemperature)!,
+            HKQuantityType.quantityType(forIdentifier: .stepCount)!,
             HKQuantityType.quantityType(forIdentifier: .activeEnergyBurned)!,
+            HKQuantityType.quantityType(forIdentifier: .basalEnergyBurned)!,
         ]
         
         healthStore.requestAuthorization(toShare: [], read: typesToRead)
@@ -34,9 +32,81 @@ class DataManager: NSObject, ObservableObject {
         }
     }
     
-    @Published var sleep: Double = 0
+    // look into how functions work in swift
+//    public func fetchLatestData(dataTypeName: String, sampleType: HKSampleType, completion: @escaping (_ samples: [HKQuantitySample]?) -> Void) {
+    public func fetchLatestData(dataTypeName: String, sampleType: HKSampleType, completion: @escaping (_ samples: Dictionary<Date, Any>?) -> Void) {
+//        /// Create sample type for the heart rate
+//        guard let sampleType = HKObjectType
+//          .quantityType(forIdentifier: .heartRate) else {
+//            completion(nil)
+//          return
+//        }
+
+        // Predicate for specifiying start and end dates for the query
+        let predicate = HKQuery
+          .predicateForSamples(
+            withStart: Date.distantPast,
+            end: Date(),
+            options: .strictEndDate)
+
+        // Set sorting by date.
+        let sortDescriptor = NSSortDescriptor(
+          key: HKSampleSortIdentifierStartDate,
+          ascending: false)
+        
+        var complete = false
+
+        // Create the query
+        let query = HKSampleQuery(
+          sampleType: sampleType,
+          predicate: predicate,
+          limit: Int(HKObjectQueryNoLimit),
+          sortDescriptors: [sortDescriptor]) { (_, results, error) in
+
+            guard error == nil else {
+              print("Error: \(error!.localizedDescription)")
+              return
+            }
+            
+            var tempDictionary = [Date:Double]()
+
+            for result in results ?? [] {
+              let data = result as! HKQuantitySample
+              let unit = HKUnit(from: "count/min")
+              let heartRateVal = data.quantity.doubleValue(for: unit)
+              let dateStart = data.startDate
+              
+              tempDictionary[dateStart] = heartRateVal
+            }
+
+            self.dataTypeDictionary.append((dataTypeName, tempDictionary))
+              
+        }
+        
+        healthStore.execute(query)
+        completion(self.dataTypeDictionary)
+      }
     
-    
+    func getData() {
+        
+        let dataTypeNames = ["heartRate"]
+        let sampleTypes = [ HKObjectType.quantityType(forIdentifier: .heartRate) ]
+        let numberOfDataTypes = Int(dataTypeNames.count)
+        var results: [String: [String: Any]] = [:]
+        
+        for i in 0...numberOfDataTypes {
+            let dataSamples = self.fetchLatestData(dataTypeName: dataTypeNames[i], sampleType: sampleTypes[i] ?? <#default value#>) { samples in
+                if samples == nil {
+                    print("There was an error fetching heart rate samples.")
+                }
+            }
+            results[dataTypeNames[i]] = dataSamples
+        }
+        
+//        completion(results as? [HKQuantitySample])
+        
+    }
+
     func sleepTime() async throws -> Double{
         let startDate = Date().addingTimeInterval( -(86400) )
         let endDate = Date()
@@ -78,7 +148,6 @@ class DataManager: NSObject, ObservableObject {
                 secondsAsleep += result.endDate.timeIntervalSince(result.startDate)
             }
         
-            self.sleep = secondsAsleep
             return secondsAsleep
             
         } catch{
