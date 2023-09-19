@@ -10,10 +10,13 @@ import SwiftUI
 @main
 struct WatchHealthRL_Watch_AppApp: App {
     @StateObject var dataManager = DataManager()
+    @StateObject var inferenceManager = InferenceManager()
     
     var body: some Scene {
         WindowGroup {
-            MainView().environmentObject(dataManager)
+            MainView()
+                .environmentObject(dataManager)
+                .environmentObject(inferenceManager)
         }
     }
 }

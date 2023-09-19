@@ -22,14 +22,12 @@ struct MainView: View {
                 NavigationLink("Train Model") { TrainModelView() }
             }
         }.onAppear(perform: {
-            dataManager.requestAuthorization()
             UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (_, _) in
             }
-            
             UNUserNotificationCenter.current().delegate = delegate
             UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
             createNotification()
-            dataManager.getData()
+            dataManager.requestAuthorization()
         })
     }
     

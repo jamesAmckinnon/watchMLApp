@@ -18,10 +18,13 @@
 		1A57D3082A90A22600FF698F /* MoodUpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A57D3072A90A22600FF698F /* MoodUpdateView.swift */; };
 		1A57D30A2A90A24500FF698F /* TrainModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A57D3092A90A24500FF698F /* TrainModelView.swift */; };
 		1A57D30C2A90A26400FF698F /* MoodUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A57D30B2A90A26400FF698F /* MoodUpdate.swift */; };
-		1A57D30E2A90A31600FF698F /* SavedMoodManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A57D30D2A90A31600FF698F /* SavedMoodManager.swift */; };
 		1ACBB12F2A917C4C00E4F534 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 1ACBB12E2A917C4C00E4F534 /* Realm */; };
 		1ACBB1312A917C4C00E4F534 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1ACBB1302A917C4C00E4F534 /* RealmSwift */; };
-		1ACBB1332A92DF6000E4F534 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACBB1322A92DF6000E4F534 /* DataManager.swift */; };
+		D798853E2AB13D3A0000881D /* SavedMoodManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D798853D2AB13D3A0000881D /* SavedMoodManager.swift */; };
+		D79885402AB13D540000881D /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D798853F2AB13D540000881D /* DataManager.swift */; };
+		D79885422AB13D620000881D /* InferenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79885412AB13D620000881D /* InferenceManager.swift */; };
+		D79885452AB15DA80000881D /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = D79885442AB15DA80000881D /* Algorithms */; };
+		D79B53DE2AB1272200BDDF2A /* SigmaSwiftStatistics in Frameworks */ = {isa = PBXBuildFile; productRef = D79B53DD2AB1272200BDDF2A /* SigmaSwiftStatistics */; };
 		D7C460702AA92F9C00561E68 /* bpmUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C4606F2AA92F9B00561E68 /* bpmUpdate.swift */; };
 /* End PBXBuildFile section */
 
@@ -78,10 +81,11 @@
 		1A57D3072A90A22600FF698F /* MoodUpdateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodUpdateView.swift; sourceTree = "<group>"; };
 		1A57D3092A90A24500FF698F /* TrainModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainModelView.swift; sourceTree = "<group>"; };
 		1A57D30B2A90A26400FF698F /* MoodUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodUpdate.swift; sourceTree = "<group>"; };
-		1A57D30D2A90A31600FF698F /* SavedMoodManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedMoodManager.swift; sourceTree = "<group>"; };
-		1ACBB1322A92DF6000E4F534 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		1ACBB1342A92E4F300E4F534 /* WatchHealthRL Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "WatchHealthRL Watch App.entitlements"; sourceTree = "<group>"; };
 		1ACBB1352A92E51E00E4F534 /* WatchHealthRL-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "WatchHealthRL-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
+		D798853D2AB13D3A0000881D /* SavedMoodManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedMoodManager.swift; sourceTree = "<group>"; };
+		D798853F2AB13D540000881D /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		D79885412AB13D620000881D /* InferenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InferenceManager.swift; sourceTree = "<group>"; };
 		D7C4606F2AA92F9B00561E68 /* bpmUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bpmUpdate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -90,6 +94,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D79885452AB15DA80000881D /* Algorithms in Frameworks */,
+				D79B53DE2AB1272200BDDF2A /* SigmaSwiftStatistics in Frameworks */,
 				1ACBB1312A917C4C00E4F534 /* RealmSwift in Frameworks */,
 				1ACBB12F2A917C4C00E4F534 /* Realm in Frameworks */,
 			);
@@ -143,8 +149,7 @@
 				1A57D2DB2A90A1F300FF698F /* MainView.swift */,
 				1A57D3072A90A22600FF698F /* MoodUpdateView.swift */,
 				1A57D3092A90A24500FF698F /* TrainModelView.swift */,
-				1A57D30D2A90A31600FF698F /* SavedMoodManager.swift */,
-				1ACBB1322A92DF6000E4F534 /* DataManager.swift */,
+				D79B53E12AB13C2000BDDF2A /* Manage */,
 				1A57D2DD2A90A1F400FF698F /* Assets.xcassets */,
 				1A57D2DF2A90A1F400FF698F /* Preview Content */,
 			);
@@ -174,6 +179,16 @@
 				1A57D2F62A90A1F400FF698F /* WatchHealthRL_Watch_AppUITestsLaunchTests.swift */,
 			);
 			path = "WatchHealthRL Watch AppUITests";
+			sourceTree = "<group>";
+		};
+		D79B53E12AB13C2000BDDF2A /* Manage */ = {
+			isa = PBXGroup;
+			children = (
+				D798853D2AB13D3A0000881D /* SavedMoodManager.swift */,
+				D798853F2AB13D540000881D /* DataManager.swift */,
+				D79885412AB13D620000881D /* InferenceManager.swift */,
+			);
+			path = Manage;
 			sourceTree = "<group>";
 		};
 		D7C460712AA930D100561E68 /* Data */ = {
@@ -221,6 +236,8 @@
 			packageProductDependencies = (
 				1ACBB12E2A917C4C00E4F534 /* Realm */,
 				1ACBB1302A917C4C00E4F534 /* RealmSwift */,
+				D79B53DD2AB1272200BDDF2A /* SigmaSwiftStatistics */,
+				D79885442AB15DA80000881D /* Algorithms */,
 			);
 			productName = "WatchHealthRL Watch App";
 			productReference = 1A57D2D42A90A1F300FF698F /* WatchHealthRL Watch App.app */;
@@ -299,6 +316,8 @@
 			mainGroup = 1A57D2C72A90A1F300FF698F;
 			packageReferences = (
 				1ACBB12D2A917C4C00E4F534 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				D79B53DC2AB1272200BDDF2A /* XCRemoteSwiftPackageReference "SigmaSwiftStatistics" */,
+				D79885432AB15DA80000881D /* XCRemoteSwiftPackageReference "swift-algorithms" */,
 			);
 			productRefGroup = 1A57D2CF2A90A1F300FF698F /* Products */;
 			projectDirPath = "";
@@ -350,14 +369,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A57D30E2A90A31600FF698F /* SavedMoodManager.swift in Sources */,
+				D798853E2AB13D3A0000881D /* SavedMoodManager.swift in Sources */,
 				1A57D2DC2A90A1F300FF698F /* MainView.swift in Sources */,
 				1A57D30A2A90A24500FF698F /* TrainModelView.swift in Sources */,
-				1ACBB1332A92DF6000E4F534 /* DataManager.swift in Sources */,
 				D7C460702AA92F9C00561E68 /* bpmUpdate.swift in Sources */,
 				1A57D3082A90A22600FF698F /* MoodUpdateView.swift in Sources */,
 				1A57D30C2A90A26400FF698F /* MoodUpdate.swift in Sources */,
+				D79885402AB13D540000881D /* DataManager.swift in Sources */,
 				1A57D2DA2A90A1F300FF698F /* WatchHealthRLApp.swift in Sources */,
+				D79885422AB13D620000881D /* InferenceManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -749,6 +769,22 @@
 				minimumVersion = 10.42.0;
 			};
 		};
+		D79885432AB15DA80000881D /* XCRemoteSwiftPackageReference "swift-algorithms" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-algorithms.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		D79B53DC2AB1272200BDDF2A /* XCRemoteSwiftPackageReference "SigmaSwiftStatistics" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/SigmaSwiftStatistics.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -761,6 +797,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1ACBB12D2A917C4C00E4F534 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		D79885442AB15DA80000881D /* Algorithms */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D79885432AB15DA80000881D /* XCRemoteSwiftPackageReference "swift-algorithms" */;
+			productName = Algorithms;
+		};
+		D79B53DD2AB1272200BDDF2A /* SigmaSwiftStatistics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D79B53DC2AB1272200BDDF2A /* XCRemoteSwiftPackageReference "SigmaSwiftStatistics" */;
+			productName = SigmaSwiftStatistics;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -9,9 +9,11 @@ import SwiftUI
 import RealmSwift
 
 struct TrainModelView: View {
-//    @ObservedResults(MoodUpdate.self) var moods
     @StateObject var realmManager = SavedMoodManager()
-//    @StateObject var realmManager.getData()
+    @EnvironmentObject var dataManager: DataManager
+    @EnvironmentObject var inferenceManager: InferenceManager
+    @State var topNCor: Dictionary<String, Double> = [:]
+    
     
     var body: some View {
         VStack {
@@ -27,6 +29,26 @@ struct TrainModelView: View {
                         Text(String(mood.mood))
                     }
                 }
+            }
+            Button (
+                "Get labels",
+                action: {
+                    Task {
+                        topNCor = await inferenceManager.topNCorrelatedVars(n: 3, epochDuration: 3600*3)
+                    }
+//                    Task {
+//                        dataManager.getSleepData()
+//
+//                    }
+                }
+            )
+            List {
+                ForEach(Array(topNCor.keys), id: \.self) { key in
+                    VStack {
+                        Text(key)
+                        Text(String(topNCor[key] ?? 0.0))
+                    }
+                } 
             }
         }
     }
