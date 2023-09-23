@@ -107,9 +107,14 @@ class DataManager: NSObject, ObservableObject {
                         let unit = HKUnit(from: unitString)
                         let sampleVal = data.quantity.doubleValue(for: unit)
                         let dateStart = data.startDate
+                        // Check the source device
+                        let sourceDevice = data.device
+                        let sourceModel = sourceDevice?.model ?? "Unknown"
                         
-                        // might have to make a timestamp key with the timestamp and a value key with the sample value
-                        dataTypeDictionary[dateStart] = sampleVal
+                        if sourceModel == "Watch" {
+                            dataTypeDictionary[dateStart] = sampleVal
+                        }
+                        
                     }
                     samplesDict[dataTypeName] = dataTypeDictionary
                     
@@ -129,12 +134,9 @@ class DataManager: NSObject, ObservableObject {
             ("heartRate", HKObjectType.quantityType(forIdentifier: .heartRate), "count/min"),
             ("heartRateVariabilitySDNN", HKObjectType.quantityType(forIdentifier: .heartRateVariabilitySDNN), "s"),
             ("stepCount", HKObjectType.quantityType(forIdentifier: .stepCount), "count"),
-            ("activeEnergyBurned", HKObjectType.quantityType(forIdentifier: .activeEnergyBurned), "cal"),
-            ("basalEnergyBurned", HKObjectType.quantityType(forIdentifier: .basalEnergyBurned), "cal"),
+            ("activeEnergyBurned", HKObjectType.quantityType(forIdentifier: .activeEnergyBurned), "kcal"),
         ]
-        
-//        var samplesDict: [String: [Date: Double]] = [:]
-            
+                    
         self.fetchLatestData(
             sampleInfo: sampleInfo
         ) { samplesDict in
@@ -220,9 +222,9 @@ class DataManager: NSObject, ObservableObject {
                 }
             }
         }
-    
-        let aggregatedData = aggregateData(unAggregatedData: unAggregatedData)
         
+        let aggregatedData = aggregateData(unAggregatedData: unAggregatedData)
+
         completion(aggregatedData)
     }
     
@@ -230,6 +232,13 @@ class DataManager: NSObject, ObservableObject {
             -> Dictionary<String, Dictionary<HashableTuple, Double>> {
                 
         var aggregatedData: [String: [HashableTuple: Double]] = [:]
+        let quantityTypeLookup: [String: String] = [
+            "moods": "arithmetic",
+            "heartRate": "arithmetic",
+            "heartRateVariabilitySDNN": "arithmetic",
+            "stepCount": "cumulative",
+            "activeEnergyBurned": "cumulative",
+        ]
 
         // Iterate through the outer dictionary.
         for (outerKey, innerDictionary) in unAggregatedData {
@@ -237,9 +246,14 @@ class DataManager: NSObject, ObservableObject {
 
             // Iterate through the inner dictionary.
             for (innerKey, valuesArray) in innerDictionary {
-                // Calculate the average of the values array.
-                let average = valuesArray.reduce(0.0, +) / Double(valuesArray.count)
-                aggregatedInnerDictionary[innerKey] = average
+                if quantityTypeLookup[outerKey] == "arithmetic" {
+                    // Calculate the average of the values array.
+                    let average = valuesArray.reduce(0.0, +) / Double(valuesArray.count)
+                    aggregatedInnerDictionary[innerKey] = average
+                } else if quantityTypeLookup[outerKey] == "cumulative" {
+                    let sum = valuesArray.reduce(0, +)
+                    aggregatedInnerDictionary[innerKey] = sum
+                }
             }
 
             aggregatedData[outerKey] = aggregatedInnerDictionary
@@ -247,6 +261,8 @@ class DataManager: NSObject, ObservableObject {
                 
         return aggregatedData
     }
+    
+    
     
     struct HashableTuple: Hashable {
         let date: Date
@@ -337,92 +353,6 @@ class DataManager: NSObject, ObservableObject {
         }
         dispatchGroup.notify(queue: DispatchQueue.main, work: workItem)
     }
-    
-//    func getSleepData(dates: Array<Date>) async throws -> Dictionary<Date, Double> {
-//    func getSleepData(dates: Array<Date>,
-//                      completion: @escaping (Dictionary<Date, Double>) -> Void) {
-//        let startDate = Date().addingTimeInterval( -(86400) )
-//        let endDate = Date()
-//
-//        // Define the type.
-//        let sleepType = HKCategoryType(.sleepAnalysis)
-//
-//        let dateRangePredicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: .strictEndDate)
-//        let allAsleepValuesPredicate = HKCategoryValueSleepAnalysis
-//            .predicateForSamples(equalTo:HKCategoryValueSleepAnalysis.allAsleepValues)
-//
-//
-//        let compoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [dateRangePredicate, allAsleepValuesPredicate])
-//
-//        // Returns a snapshot of all matching samples in the HealthKit store.
-//        let descriptor = HKSampleQueryDescriptor(
-//            // A predicate is a logical condition that evaluates to a Boolean value.
-//            // It can be used to filter a collection of objects.
-//            predicates: [.categorySample(type: sleepType, predicate: compoundPredicate)],
-//            sortDescriptors: []
-//        )
-//
-//        do {
-//            let results = try await descriptor.result(for: healthStore)
-//            var secondsAsleep = 0.0
-//            print(results)
-//            for result in results {
-//                // timeIntervalSince returns the interval between this date and another given date.
-//                // This looks at each time window of an asleep category and gets the difference between the start
-//                // and end time of that window in seconds and then adds that to the secondsAsleep variable.
-//                secondsAsleep += result.endDate.timeIntervalSince(result.startDate)
-//            }
-//
-//            return secondsAsleep
-//
-//        } catch{
-//            return 0.0
-//        }
-//        var sleepData: [Date: Double] = [:]
-//
-//        // Define the type.
-//        let sleepType = HKCategoryType(.sleepAnalysis)
-//
-//        var dates = [
-//            Calendar.current.date(byAdding: .day, value: -4, to: Date.now)!,
-//            Calendar.current.date(byAdding: .day, value: -3, to: Date.now)!,
-//            Calendar.current.date(byAdding: .day, value: -2, to: Date.now)!
-//        ]
-//
-//        for date in dates {
-//            let startDate = date
-//            let endDate = Calendar.current.date(byAdding: .day, value: 1, to: startDate)!
-//
-//            let dateRangePredicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: .strictEndDate)
-//            let allAsleepValuesPredicate = HKCategoryValueSleepAnalysis
-//                .predicateForSamples(equalTo: HKCategoryValueSleepAnalysis.allAsleepValues)
-//
-//            let compoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [dateRangePredicate, allAsleepValuesPredicate])
-//
-//            let descriptor = HKSampleQueryDescriptor(
-//                predicates: [.categorySample(type: sleepType, predicate: compoundPredicate)],
-//                sortDescriptors: []
-//            )
-//
-//            do {
-//                let results = try await descriptor.result(for: healthStore)
-//                var secondsAsleep = 0.0
-//                print("results: ")
-//                print(results)
-//
-//                for result in results {
-//                    secondsAsleep += result.endDate.timeIntervalSince(result.startDate)
-//                }
-//
-//                sleepData[date] = secondsAsleep
-//            } catch {
-//                print("Error collecting sleep data for \(date)")
-//            }
-//        }
-//
-//        return sleepData
-//    }
-//
 }
 
 extension NSDate

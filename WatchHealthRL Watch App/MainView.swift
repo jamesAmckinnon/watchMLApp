@@ -6,22 +6,70 @@
 //
 
 import SwiftUI
+import Charts
 import RealmSwift
 import UserNotifications
+
+struct DailyMood: Identifiable {
+    let day: String
+    let moods: Double
+
+    var id: String { day }
+}
+
+struct DataTypeCorrelation: Identifiable {
+    let dataType: String
+    let correlation: Double
+    let correlationStrength: String
+    let colour: Color
+
+    var id: String { dataType }
+}
+
+let sevenDayMoods: [DailyMood] = [
+    .init(day: "M", moods: 4.6),
+    .init(day: "T", moods: 2.5),
+    .init(day: "W", moods: 5.0),
+    .init(day: "TH", moods: 3.2),
+    .init(day: "F", moods: 3.0),
+    .init(day: "S", moods: 2.3),
+    .init(day: "SU", moods: 3.4),
+]
+
+let dataCorrelations: [DataTypeCorrelation] = [
+    .init(dataType: "HRV", correlation: 0.8, correlationStrength: "Strong +", colour: Color(.orange)),
+    .init(dataType: "Cals burnt", correlation: -0.2, correlationStrength: "Weak -", colour: Color(.blue)),
+    .init(dataType: "Steps", correlation: -0.4, correlationStrength: "Weak -", colour: Color(.gray)),
+    .init(dataType: "Time asleep", correlation: 0.9, correlationStrength: "Strong +", colour: Color(.green)),
+]
+
+public var uiStats: [String: [String: Any]] = [
+    "sevenDayAnalysis": [
+        "averageMood": 3.4285,
+        "moodValues": sevenDayMoods
+    ],
+    "correlations": [
+        "correlationValues": dataCorrelations
+    ]
+]
 
 struct MainView: View {
     @StateObject var delegate = NotificationDelegate()
     @EnvironmentObject var dataManager: DataManager
+        
+    @State var sevenDayData = uiStats["sevenDayAnalysis"]?["moodValues"]
+    @State var dataCorrelationsData = uiStats["correlations"]?["correlationValues"]
+    @State private var average = uiStats["sevenDayAnalysis"]?["averageMood"]
     
     var body: some View {
-        
-        NavigationStack {
-            realmFileLocation()
-            List {
-                NavigationLink("Mood Update") { MoodUpdateView() }
-                NavigationLink("Train Model") { TrainModelView() }
-            }
-        }.onAppear(perform: {
+        //            realmFileLocation()
+
+        TabView() {
+            SevenDayView(data: sevenDayData as! [DailyMood], average: average as! Double)
+            CorrelationsView(data: dataCorrelationsData as! [DataTypeCorrelation])
+        }
+        .tabViewStyle(.verticalPage)
+        .onAppear(perform: {
             UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (_, _) in
             }
             UNUserNotificationCenter.current().delegate = delegate
@@ -29,6 +77,9 @@ struct MainView: View {
             createNotification()
             dataManager.requestAuthorization()
         })
+        .background(
+                LinearGradient(gradient: Gradient(colors: [.lightGreenBlue, .darkGreenBlue]), startPoint: .top, endPoint: .bottom)
+        )
     }
     
     func createNotification(){

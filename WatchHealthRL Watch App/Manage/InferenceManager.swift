@@ -74,8 +74,10 @@ class InferenceManager: NSObject, ObservableObject {
 
             let moods = aggregatedData["moods"] ?? [:]
             
+//            print(aggregatedData)
+            
             for (key, value) in aggregatedData {
-                print(key)
+
                 if key == "moods" {
                     continue
                 }
@@ -87,7 +89,7 @@ class InferenceManager: NSObject, ObservableObject {
                 let featureArray = alignedArrays[1]
                 
                 if alignedArrays.allSatisfy({ !$0.isEmpty }) {
-                    let pearsonCorrelation = Sigma.pearson(x: moodArray, y: featureArray)!
+                    let pearsonCorrelation = Sigma.pearson(x: moodArray, y: featureArray)
                     correlations[key] = pearsonCorrelation
                 }
             }
