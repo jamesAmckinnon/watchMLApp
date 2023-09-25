@@ -228,6 +228,36 @@ class DataManager: NSObject, ObservableObject {
         completion(aggregatedData)
     }
     
+    func getAggMoodDayData(moods: Dictionary<HashableTuple, Double>,
+                           completion: @escaping (Dictionary<Date, Double>) -> Void)  {
+        var unAggregatedData: [Date: Array<Double>] = [:]
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        
+        for (key, mood) in moods {
+            let moodValue = Double(mood)
+            let date = key.date
+            
+            if var existingValues = unAggregatedData[date] {
+                existingValues.append(moodValue)
+                unAggregatedData[date] = existingValues
+            } else {
+                unAggregatedData[date] = [moodValue]
+            }
+            
+        }
+        
+        var aggregatedMoodDictionary: [Date: Double] = [:]
+        
+        for (date, valuesArray) in unAggregatedData {
+            // Calculate the average of the values array.
+            let average = valuesArray.reduce(0.0, +) / Double(valuesArray.count)
+            aggregatedMoodDictionary[date] = average
+        }
+        
+        completion(aggregatedMoodDictionary)
+    }
+    
     func aggregateData(unAggregatedData: Dictionary<String, Dictionary<HashableTuple, Array<Double>>>)
             -> Dictionary<String, Dictionary<HashableTuple, Double>> {
                 

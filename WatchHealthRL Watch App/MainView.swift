@@ -10,37 +10,22 @@ import Charts
 import RealmSwift
 import UserNotifications
 
-struct DailyMood: Identifiable {
-    let day: String
-    let moods: Double
-
-    var id: String { day }
-}
-
-struct DataTypeCorrelation: Identifiable {
-    let dataType: String
-    let correlation: Double
-    let correlationStrength: String
-    let colour: Color
-
-    var id: String { dataType }
-}
 
 let sevenDayMoods: [DailyMood] = [
-    .init(day: "M", moods: 4.6),
-    .init(day: "T", moods: 2.5),
-    .init(day: "W", moods: 5.0),
-    .init(day: "TH", moods: 3.2),
-    .init(day: "F", moods: 3.0),
-    .init(day: "S", moods: 2.3),
-    .init(day: "SU", moods: 3.4),
+    .init(day: "SU", moods: 4.6),
+    .init(day: "M", moods: 2.5),
+    .init(day: "T", moods: 5.0),
+    .init(day: "W", moods: 3.2),
+    .init(day: "TH", moods: 3.0),
+    .init(day: "F", moods: 2.3),
+    .init(day: "S", moods: 3.4),
 ]
 
 let dataCorrelations: [DataTypeCorrelation] = [
-    .init(dataType: "HRV", correlation: 0.8, correlationStrength: "Strong +", colour: Color(.orange)),
+    .init(dataType: "Time asleep", correlation: 0.9, correlationStrength: "Strong +", colour: Color(.green)),
     .init(dataType: "Cals burnt", correlation: -0.2, correlationStrength: "Weak -", colour: Color(.blue)),
     .init(dataType: "Steps", correlation: -0.4, correlationStrength: "Weak -", colour: Color(.gray)),
-    .init(dataType: "Time asleep", correlation: 0.9, correlationStrength: "Strong +", colour: Color(.green)),
+    .init(dataType: "HRV", correlation: 0.3, correlationStrength: "Weak +", colour: Color(.orange)),
 ]
 
 public var uiStats: [String: [String: Any]] = [
@@ -56,35 +41,64 @@ public var uiStats: [String: [String: Any]] = [
 struct MainView: View {
     @StateObject var delegate = NotificationDelegate()
     @EnvironmentObject var dataManager: DataManager
-        
-    @State var sevenDayData = uiStats["sevenDayAnalysis"]?["moodValues"]
-    @State var dataCorrelationsData = uiStats["correlations"]?["correlationValues"]
-    @State private var average = uiStats["sevenDayAnalysis"]?["averageMood"]
+    @EnvironmentObject var inferenceManager: InferenceManager
     
+    
+    @State var sevenDayData: [DailyMood] = []
+    @State var dataCorrelationsData: [DataTypeCorrelation] = []
+    @State var average: Double = 0.0
+    
+    @State private var isDataAvailable = false
+        
     var body: some View {
         //            realmFileLocation()
-
-        TabView() {
-            SevenDayView(data: sevenDayData as! [DailyMood], average: average as! Double)
-            CorrelationsView(data: dataCorrelationsData as! [DataTypeCorrelation])
-        }
-        .tabViewStyle(.verticalPage)
-        .onAppear(perform: {
-            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (_, _) in
+        if isDataAvailable {
+            TabView() {
+                SevenDayView(data: sevenDayData, average: average)
+                CorrelationsView(data: dataCorrelationsData)
             }
-            UNUserNotificationCenter.current().delegate = delegate
-            UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-            createNotification()
-            dataManager.requestAuthorization()
-        })
-        .background(
+            .tabViewStyle(.verticalPage)
+            .onAppear(perform: {
+                UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (_, _) in
+                }
+                UNUserNotificationCenter.current().delegate = delegate
+                UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+                createNotification()
+                dataManager.requestAuthorization()
+            })
+            .background(
                 LinearGradient(gradient: Gradient(colors: [.lightGreenBlue, .darkGreenBlue]), startPoint: .top, endPoint: .bottom)
-        )
+            )
+        } else {
+            Text("Generating Analysis...")
+                .onAppear {
+                    Task {
+                        inferenceManager.updateUIData(epochDuration: 3600*3) { UIData in
+                            if !UIData.isEmpty {
+                                dataCorrelationsData = inferenceManager.moodCorrelations
+                                sevenDayData = inferenceManager.sevenDayMoods
+                                average = inferenceManager.average
+                                isDataAvailable = true
+                            } else {
+                                dataCorrelationsData = uiStats["correlations"]?["correlationValues"] as! [DataTypeCorrelation]
+                                sevenDayData = uiStats["sevenDayAnalysis"]?["moodValues"] as! [DailyMood]
+                                average = uiStats["sevenDayAnalysis"]?["averageMood"] as! Double
+                                isDataAvailable = true
+                            }
+                            
+                        }
+                    }
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(
+                    LinearGradient(gradient: Gradient(colors: [.lightGreenBlue, .darkGreenBlue]), startPoint: .top, endPoint: .bottom)
+                )
+        }
     }
     
     func createNotification(){
         let content = UNMutableNotificationContent()
-        content.title = "ML Health App"
+        content.title = "Health App"
         content.subtitle = "How are you feeling?"
         content.categoryIdentifier = "ACTIONS"
         
@@ -127,11 +141,5 @@ class NotificationDelegate: NSObject, ObservableObject, UNUserNotificationCenter
         realmManager.createMood(dateTime: dateTime, mood: mood)
         
         completionHandler()
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainView()
     }
 }

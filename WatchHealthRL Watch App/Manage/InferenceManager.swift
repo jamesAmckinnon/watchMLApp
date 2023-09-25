@@ -5,6 +5,7 @@
 //  Created by James on 2023-09-12.
 //
 
+import SwiftUI
 import Foundation
 import Algorithms
 import SigmaSwiftStatistics
@@ -14,6 +15,10 @@ class InferenceManager: NSObject, ObservableObject {
     let dataManager = DataManager()
     let realmManager = SavedMoodManager()
     var correlations: Dictionary<String, Double> = [:]
+    var aggregatedData: Dictionary<String, Dictionary<DataManager.HashableTuple, Double>> = [:]
+    var sevenDayMoods: [DailyMood] = []
+    var moodCorrelations: [DataTypeCorrelation] = []
+    var average: Double = 0.0
     
     public var testAggregatedData = [
         "moods": [DataManager.HashableTuple(Date.now, 0): 4.0,
@@ -26,11 +31,11 @@ class InferenceManager: NSObject, ObservableObject {
                                      DataManager.HashableTuple(Date.now, 2): 43.2,
                                      DataManager.HashableTuple(Date.now, 6): 45.0],
         "stepCount": [DataManager.HashableTuple(Date.now, 6): 3256,
-                  DataManager.HashableTuple(Date.now, 3): 567,
-                  DataManager.HashableTuple(Date.now, 2): 2300],
+                      DataManager.HashableTuple(Date.now, 3): 567,
+                      DataManager.HashableTuple(Date.now, 2): 2300],
         "activeEnergyBurned": [DataManager.HashableTuple(Date.now, 0): 2500,
-                  DataManager.HashableTuple(Date.now, 4): 4300,
-                  DataManager.HashableTuple(Date.now, 5): 3290],
+                               DataManager.HashableTuple(Date.now, 4): 4300,
+                            DataManager.HashableTuple(Date.now, 5): 3290],
         "basalEnergyBurned": [DataManager.HashableTuple(Date.now, 0): 1200,
                   DataManager.HashableTuple(Date.now, 5): 3249,
                   DataManager.HashableTuple(Date.now, 7): 2123],
@@ -60,23 +65,20 @@ class InferenceManager: NSObject, ObservableObject {
     }
 
     
-    func topNCorrelatedVars(n: Int, epochDuration: Double) -> Void{
-        
-        var aggregatedData: Dictionary<String, Dictionary<DataManager.HashableTuple, Double>> = [:]
+    func updateUIData(epochDuration: Double,
+                            completion: @escaping (Dictionary<String, Double>) -> Void) -> Void{
         var correlations: Dictionary<String, Double> = [:]
         
         getAllData(epochDuration: epochDuration) { aggregatedDataCopy in
-            aggregatedData = aggregatedDataCopy
+            self.aggregatedData = aggregatedDataCopy
         
-            if aggregatedData.isEmpty {
-                aggregatedData = self.testAggregatedData
+            if self.aggregatedData.isEmpty {
+                self.aggregatedData = self.testAggregatedData
             }
 
-            let moods = aggregatedData["moods"] ?? [:]
+            let moods = self.aggregatedData["moods"] ?? [:]
             
-//            print(aggregatedData)
-            
-            for (key, value) in aggregatedData {
+            for (key, value) in self.aggregatedData {
 
                 if key == "moods" {
                     continue
@@ -93,9 +95,45 @@ class InferenceManager: NSObject, ObservableObject {
                     correlations[key] = pearsonCorrelation
                 }
             }
+            
+            self.dataManager.getAggMoodDayData(moods: moods) { aggedMoods in
+                let sortedKeys = aggedMoods.keys.sorted()
+                var moodsForTotalAverage: [Double] = []
+                
+                for moodDay in sortedKeys {
+                    let dayOfWeek = self.dayOfWeekName(date: moodDay)
+                    let avgMoodDay = aggedMoods[moodDay] ?? 0.0
+                    moodsForTotalAverage.append(avgMoodDay)
+                    self.sevenDayMoods.append( DailyMood.init(day: dayOfWeek, moods: avgMoodDay) )
+                }
+                
+                var sevenDayMoodAverage = moodsForTotalAverage.reduce(0, +) / Double(moodsForTotalAverage.count)
+                
+                if sevenDayMoodAverage >= 0.0 {
+                    self.average = sevenDayMoodAverage
+                } else {
+                    self.average = 0.0
+                }
+            }
+            
+            for (dataType, cor) in correlations {
+                let corStrength = cor > 0.5 ? "Strong" : "Weak"
+                let corPosNeg = cor >= 0.0 ? "+" : "-"
+                let corString = "\(corStrength) \(corPosNeg)"
+                let shortDataType = dataTypeShortNameLookup[dataType]!.0
+                let dataTypeColour = dataTypeShortNameLookup[dataType]!.1
+                
+                self.moodCorrelations.append( 
+                    DataTypeCorrelation.init(
+                        dataType: shortDataType,
+                        correlation: cor,
+                        correlationStrength: corString,
+                        colour: dataTypeColour
+                    )
+                )
+            }
+            completion(correlations)
         }
-
-        self.correlations = correlations
     }
     
     func getTimeAlignedArrays(moodData: Dictionary<DataManager.HashableTuple, Double>,
@@ -111,4 +149,72 @@ class InferenceManager: NSObject, ObservableObject {
         
         return [moodArray, featureArray]
     }
+    
+    func getLastSevenDaysOfMoods(moods: [Date: Double]) -> [Date: Double] {
+        var datesAndAverages: [Date: Double] = [:]
+        let calendar = Calendar.current
+
+        for dayOffset in 1...7 {
+            if let currentDate = calendar.date(byAdding: .day, value: -dayOffset, to: Date()) {
+                let currentDateComponents = calendar.dateComponents([.year, .month, .day], from: currentDate)
+                let matchingMoods = moods.filter { moodDate, _ in
+                    let moodDateComponents = calendar.dateComponents([.year, .month, .day], from: moodDate)
+                    return calendar.isDate(currentDate, inSameDayAs: moodDate) &&
+                           currentDateComponents == moodDateComponents
+                }
+                
+                let moodValues = matchingMoods.map { $0.value }
+                let averageMood = moodValues.reduce(0, +) / Double(moodValues.count)
+                
+                datesAndAverages[currentDate] = averageMood
+            }
+        }
+
+        return datesAndAverages
+    }
+    
+    func dayOfWeekName(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE"
+        let dayString = dateFormatter.string(from: date)
+        let shortDay = dayLookup[dayString]!
+
+        return shortDay
+    }
 }
+
+struct DailyMood: Identifiable {
+    let day: String
+    let moods: Double
+
+    var id: String { day }
+}
+
+
+struct DataTypeCorrelation: Identifiable {
+    let dataType: String
+    let correlation: Double
+    let correlationStrength: String
+    let colour: Color
+
+    var id: String { dataType }
+}
+
+public let dataTypeShortNameLookup = [
+    "heartRate": ("Heart rate", Color(UIColor(red: 240/255, green: 222/255, blue: 54/255, alpha: 1))),
+    "heartRateVariabilitySDNN": ("HRV", Color(.orange)),
+    "stepCount": ("Steps", Color(UIColor(red: 225/255, green: 225/255, blue: 225/255, alpha: 1))),
+    "activeEnergyBurned": ("Cals burnt", Color(.blue)),
+    "sleep": ("Time asleep", Color(.green))
+]
+
+public let dayLookup = [
+    "Monday": "M",
+    "Tuesday": "T",
+    "Wednesday": "W",
+    "Thursday": "TH",
+    "Friday": "F",
+    "Saturday": "S",
+    "Sunday": "SU"
+]
+

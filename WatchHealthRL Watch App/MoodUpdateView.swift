@@ -19,7 +19,33 @@ struct MoodUpdateView: View {
         NavigationView{
             VStack{
                 
-                Spacer()
+                if mood == -1{
+                    Text("How are you feeling?").frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.top, 23)
+                        .padding(.leading, 15)
+                } else if mood == 1 {
+                    Text("Very Unpleasant").frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.top, 23)
+                        .padding(.leading, 15)
+                } else if mood == 2 {
+                    Text("Unpleasant").frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.top, 23)
+                        .padding(.leading, 15)
+                } else if mood == 3 {
+                    Text("Neutral").frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.top, 23)
+                        .padding(.leading, 15)
+                } else if mood == 4 {
+                    Text("Pleasant").frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.top, 23)
+                        .padding(.leading, 15)
+                } else if mood == 5 {
+                    Text("Very Pleasant").frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.top, 23)
+                        .padding(.leading, 15)
+                }
+                
+                
                 
                 HStack(spacing: 5) {
                     ForEach(1...5, id: \.self) { value in
@@ -33,21 +59,36 @@ struct MoodUpdateView: View {
                 Spacer()
                 
                 if mood != -1 {
-                    Button(action:{
+                    Button("Submit") {
                         dateTime = Date()
                         realmManager.createMood(dateTime: dateTime, mood: mood)
                         mood = -1
                         isLinkActive.toggle()
-                    }) {
-                        Text("Submit")
                     }
-                    .buttonBorderShape(.roundedRectangle(radius: 4))
-                    .padding(.bottom)
+                    .frame(height: 15)
+                    .padding(.horizontal, 47)
+                    .padding(.vertical, 10)
+                    .background(.gray)
+                    .buttonStyle(PlainButtonStyle())
+                    .cornerRadius(4)
+                    
+                    Spacer()
+//                    Button(action:{
+//                        dateTime = Date()
+//                        realmManager.createMood(dateTime: dateTime, mood: mood)
+//                        mood = -1
+//                        isLinkActive.toggle()
+//                    }) {
+//                        Text("Submit")
+//                            .frame(height: 5)
+//                    }
+//                    .buttonBorderShape(.roundedRectangle(radius: 4))
+//                    .padding(.bottom, 10)
                 }
             }
             .padding()
         }
-        .navigationTitle("Mood Update")
+        .navigationTitle(){Text("Mood Update").foregroundColor(.white)}
         .navigationBarTitleDisplayMode(.inline)
     }
 }

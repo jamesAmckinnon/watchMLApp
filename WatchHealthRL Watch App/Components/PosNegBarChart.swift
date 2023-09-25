@@ -55,7 +55,7 @@ struct PosNegBarChart: View {
                 AxisMarks(values: .automatic(desiredCount: 4)) { _ in
                 }
             }
-            .frame(width: deviceWidth * 0.85, height: 70)
+            .frame(width: deviceWidth * 0.85, height: 60)
         }
     }
 }

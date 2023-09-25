@@ -33,9 +33,9 @@ struct TrainModelView: View {
             Button (
                 "Get labels",
                 action: {
-                    Task {
-                        inferenceManager.topNCorrelatedVars(n: 3, epochDuration: 3600*3)
-                    }
+//                    Task {
+//                        inferenceManager.topNCorrelatedVars(n: 3, epochDuration: 3600*3)
+//                    }
 //                    Task {
 //                        dataManager.getSleepData()
 //
